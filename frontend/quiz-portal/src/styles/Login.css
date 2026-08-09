@@ -1,0 +1,270 @@
+
+* {
+    box-sizing: border-box;
+}
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+}
+
+.login-box {
+    width: 900px;
+    min-height: 550px;
+    display: flex;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================
+   LEFT SIDE
+   ========================= */
+
+.login-left {
+    width: 45%;
+    background: linear-gradient(160deg, #4f46e5, #7c3aed);
+    color: white;
+    padding: 60px 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.quiz-icon {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.login-left h1 {
+    font-size: 42px;
+    margin: 0 0 20px;
+    font-weight: 700;
+}
+
+.login-left > p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #f1f1f1;
+    margin-bottom: 25px;
+}
+
+.features {
+    margin-top: 10px;
+}
+
+.features p {
+    font-size: 15px;
+    margin: 15px 0;
+}
+
+/* =========================
+   RIGHT SIDE
+   ========================= */
+
+.login-right {
+    width: 55%;
+    padding: 55px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-right h2 {
+    font-size: 30px;
+    color: #222;
+    margin: 0 0 8px;
+}
+
+.login-subtitle {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+/* =========================
+   FORM
+   ========================= */
+
+.login-form-group {
+    margin-bottom: 20px;
+}
+
+.login-form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.login-form-group input {
+    width: 100%;
+    height: 48px;
+    padding: 0 15px;
+    border: 1px solid #d5d5d5;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.login-form-group input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.12);
+}
+
+.login-form-group input::placeholder {
+    color: #aaa;
+}
+
+/* =========================
+   LOGIN BUTTON
+   ========================= */
+
+.login-button {
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 5px;
+}
+
+.login-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(102, 126, 234, 0.3);
+}
+
+.login-button:active {
+    transform: translateY(0);
+}
+
+/* =========================
+   MESSAGE
+   ========================= */
+
+.login-message {
+    text-align: center;
+    margin: 15px 0 5px;
+    color: #e63946;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* =========================
+   LINKS
+   ========================= */
+
+.forgot-password {
+    text-align: right;
+    margin-top: 12px;
+}
+
+.link-button {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #667eea;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.link-button:hover {
+    color: #4f46e5;
+    text-decoration: underline;
+}
+
+.register-text {
+    text-align: center;
+    margin-top: 25px;
+    color: #777;
+    font-size: 14px;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+   ========================= */
+
+@media (max-width: 768px) {
+
+    .login-box {
+        width: 100%;
+        max-width: 500px;
+        flex-direction: column;
+    }
+
+    .login-left {
+        width: 100%;
+        padding: 35px 30px;
+        text-align: center;
+    }
+
+    .login-left h1 {
+        font-size: 34px;
+    }
+
+    .login-left > p {
+        font-size: 14px;
+    }
+
+    .features {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .features p {
+        margin: 5px;
+    }
+
+    .login-right {
+        width: 100%;
+        padding: 40px 30px;
+    }
+
+    .login-right h2 {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .login-page {
+        padding: 10px;
+    }
+
+    .login-box {
+        border-radius: 15px;
+    }
+
+    .login-left {
+        padding: 30px 20px;
+    }
+
+    .login-right {
+        padding: 30px 20px;
+    }
+
+    .quiz-icon {
+        font-size: 45px;
+    }
+
+    .login-left h1 {
+        font-size: 30px;
+    }
+}
+
