@@ -1,0 +1,336 @@
+/* =========================================
+   Main Dashboard
+========================================= */
+
+.home-page {
+    min-height: 100vh;
+    background: #f4f6fb;
+    font-family: Arial, sans-serif;
+    color: #1f2937;
+}
+
+
+/* =========================================
+   Header
+========================================= */
+
+.dashboard-header {
+    height: 75px;
+
+    background: #1e293b;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 45px;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+
+    box-sizing: border-box;
+}
+
+.dashboard-header h1 {
+    margin: 0;
+
+    color: white;
+
+    font-size: 26px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   Logout Button
+========================================= */
+
+.logout-button {
+    border: none;
+
+    background: #ef4444;
+
+    color: white;
+
+    padding: 11px 20px;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.logout-button:hover {
+    background: #dc2626;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   Dashboard Content
+========================================= */
+
+.dashboard-content {
+    padding: 40px 50px;
+}
+
+
+/* =========================================
+   Top Action Buttons
+========================================= */
+
+.dashboard-content > .logout-button {
+    display: inline-block;
+
+    margin-right: 12px;
+
+    margin-bottom: 30px;
+
+    background: #2563eb;
+}
+
+.dashboard-content > .logout-button:hover {
+    background: #1d4ed8;
+}
+
+
+/* Add Question button */
+
+.dashboard-content > .logout-button:nth-of-type(2) {
+    background: #7c3aed;
+}
+
+.dashboard-content > .logout-button:nth-of-type(2):hover {
+    background: #6d28d9;
+}
+
+
+/* =========================================
+   Category Grid
+========================================= */
+
+.category-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill, minmax(260px, 1fr));
+
+    gap: 25px;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   Category Card
+========================================= */
+
+.category-card {
+    background: white;
+
+    border-radius: 14px;
+
+    padding: 25px;
+
+    min-height: 190px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 5px 15px rgba(15, 23, 42, 0.07);
+
+    cursor: pointer;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+
+    box-sizing: border-box;
+}
+
+
+/* Card Hover */
+
+.category-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #6366f1;
+
+    box-shadow:
+        0 12px 25px rgba(15, 23, 42, 0.12);
+}
+
+
+/* =========================================
+   Category Name
+========================================= */
+
+.category-card h2 {
+    margin: 0 0 12px 0;
+
+    font-size: 22px;
+
+    color: #1e293b;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   Category Description
+========================================= */
+
+.category-card p {
+    margin: 0 0 20px 0;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    flex-grow: 1;
+}
+
+
+/* =========================================
+   View Questions Button
+========================================= */
+
+.category-card button {
+    width: 100%;
+
+    padding: 11px 15px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #6366f1;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.category-card button:hover {
+    background: #4f46e5;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   Empty Categories
+========================================= */
+
+.category-grid:empty::after {
+    content: "No categories available.";
+
+    display: block;
+
+    text-align: center;
+
+    color: #64748b;
+
+    font-size: 16px;
+
+    grid-column: 1 / -1;
+}
+
+
+/* =========================================
+   Tablet
+========================================= */
+
+@media (max-width: 768px) {
+
+    .dashboard-header {
+        padding: 0 25px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 22px;
+    }
+
+    .dashboard-content {
+        padding: 30px 25px;
+    }
+
+    .category-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 18px;
+    }
+}
+
+
+/* =========================================
+   Mobile
+========================================= */
+
+@media (max-width: 550px) {
+
+    .dashboard-header {
+        height: auto;
+
+        min-height: 70px;
+
+        padding: 15px 18px;
+
+        gap: 15px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 20px;
+    }
+
+    .logout-button {
+        padding: 9px 14px;
+
+        font-size: 13px;
+    }
+
+    .dashboard-content {
+        padding: 25px 18px;
+    }
+
+    .dashboard-content > .logout-button {
+        width: 100%;
+
+        margin-right: 0;
+
+        margin-bottom: 12px;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .category-card {
+        min-height: 170px;
+    }
+}

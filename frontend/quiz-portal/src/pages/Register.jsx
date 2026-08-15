@@ -72,7 +72,7 @@ function Register() {
 
       const response = await registerUser(userData);
 
-      console.log('Registration response:', response);
+      console.log('Registration response:', response.data);
 
       setSuccess('Registration successful! Redirecting to login...');
 

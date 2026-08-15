@@ -10,32 +10,34 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/admin")
+@CrossOrigin(origins = "http://localhost:5173")
 public class CategoryController {
 
     @Autowired
     private CategoryService categoryService;
 
-    @PostMapping
+    @PostMapping("/categories")
     public ResponseEntity<?> addCategory(@RequestBody Category category){
         categoryService.addCategory(category);
         return new ResponseEntity<>("Category added successfully", HttpStatus.OK);
     }
 
-    @GetMapping
+    @GetMapping("/categories")
     public List<Category> getCategories(){
         List<Category> categories= categoryService.getCategories();
         return categories;
     }
 
-    @PutMapping
-    public ResponseEntity<?> updateCategory(@RequestBody Category category)
+    @PutMapping("/categories/{id}")
+    public ResponseEntity<?> updateCategory(@RequestBody Category category, @PathVariable int id)
     {
         categoryService.updateCategory(category);
         return new ResponseEntity<>("Category Updated successfully", HttpStatus.OK);
     }
 
-    @DeleteMapping
-    public ResponseEntity<?> deleteCategory(String name){
+    @DeleteMapping("/categories")
+    public ResponseEntity<?> deleteCategory(@RequestParam String name){
         categoryService.deleteCategory(name);
         return new ResponseEntity<>("Category Deleted successfully", HttpStatus.OK);
     }

@@ -1,0 +1,172 @@
+/* Page background */
+.category-container {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    background-color: #f5f7fb;
+
+    font-family: Arial, sans-serif;
+
+    padding: 20px;
+}
+
+/* Form card */
+.category-container form {
+    width: 100%;
+    max-width: 500px;
+
+    background-color: white;
+
+    padding: 35px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+
+    box-sizing: border-box;
+}
+
+/* Heading */
+.category-container h2 {
+    color: #1e293b;
+
+    font-size: 28px;
+
+    margin-bottom: 25px;
+
+    text-align: center;
+}
+
+/* Form field */
+.category-container form > div {
+    margin-bottom: 20px;
+}
+
+/* Labels */
+.category-container label {
+    display: block;
+
+    color: #334155;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
+}
+
+/* Input and textarea */
+.category-container input,
+.category-container textarea {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 7px;
+
+    font-size: 15px;
+
+    font-family: Arial, sans-serif;
+
+    box-sizing: border-box;
+
+    outline: none;
+
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Input focus */
+.category-container input:focus,
+.category-container textarea:focus {
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* Textarea */
+.category-container textarea {
+    resize: vertical;
+
+    min-height: 100px;
+}
+
+/* Placeholder */
+.category-container input::placeholder,
+.category-container textarea::placeholder {
+    color: #94a3b8;
+}
+
+/* Add Category button */
+.category-container button {
+    width: 100%;
+
+    padding: 12px;
+
+    background-color: #2563eb;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 7px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Button hover */
+.category-container button:hover {
+    background-color: #1d4ed8;
+
+    transform: translateY(-1px);
+}
+
+/* Button click */
+.category-container button:active {
+    transform: translateY(0);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    .category-container {
+        padding: 15px;
+    }
+
+    .category-container form {
+        padding: 25px;
+    }
+
+    .category-container h2 {
+        font-size: 24px;
+    }
+}
+
+.question-container input {
+    width: 100%;
+    padding: 13px 15px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #d0d5dd;
+    border-radius: 10px;
+
+    background-color: #ffffff;
+
+    color: #172033;       /* important */
+    font-size: 15px;
+
+    outline: none;
+}

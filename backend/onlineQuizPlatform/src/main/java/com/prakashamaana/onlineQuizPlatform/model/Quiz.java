@@ -1,12 +1,15 @@
 package com.prakashamaana.onlineQuizPlatform.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "quizzes")
+@Data
 public class Quiz {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,15 +29,27 @@ public class Quiz {
     private Difficulty difficulty;
 
     private Integer duration;
+
     private Integer passingScore;
+
     private Integer maxAttempts;
 
     @Enumerated(EnumType.STRING)
     private QuizStatus quizStatus;
 
-    @ManyToOne
     @JoinColumn(name="user_id", nullable = false)
+    @ManyToOne(fetch=FetchType.LAZY)
     private User createdBy;
+
+    @ManyToMany
+    @JoinTable(
+            name = "quiz_questions",
+            joinColumns = @JoinColumn(name = "quiz_id"),
+            inverseJoinColumns = @JoinColumn(name = "question_id")
+    )
+    private List<Question> questions;
+
+
 
     private LocalDateTime createdAt;
 
