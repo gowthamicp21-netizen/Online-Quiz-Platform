@@ -50,7 +50,7 @@ public class JwtService {
                 .claims(claims)
                 .subject(userDetails.getUsername())
                 .issuedAt(new Date())
-                .expiration(new Date(System.currentTimeMillis() + 1000 * 60 * 30))
+                .expiration(new Date(System.currentTimeMillis() + 3000 * 60 * 30))
                 .signWith(getKey())
                 .compact();
 
@@ -72,8 +72,6 @@ public class JwtService {
     }
 
     public String extractUserName(String token) {
-
-
         return extractClaim(token, Claims::getSubject);
     }
 

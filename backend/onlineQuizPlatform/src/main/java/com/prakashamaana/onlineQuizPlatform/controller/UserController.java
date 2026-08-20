@@ -58,7 +58,6 @@ public class UserController {
             return jwtService.generateToken(userDetails);
         }
         return "Failure";
-
     }
 
     @PutMapping("/forgot-password")

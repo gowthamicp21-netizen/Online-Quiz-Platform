@@ -2,6 +2,7 @@ package com.prakashamaana.onlineQuizPlatform.service;
 
 import com.prakashamaana.onlineQuizPlatform.model.Category;
 import com.prakashamaana.onlineQuizPlatform.repo.CategoryRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,13 +23,31 @@ public class CategoryService {
         return categoryRepo.findAll();
     }
 
-    public void updateCategory(Category category) {
+    public void updateCategory(Category category, Integer id) {
 
-        categoryRepo.save(category);
+        Category existingCategory =
+                categoryRepo.findById(id)
+                        .orElseThrow(
+                                () -> new RuntimeException("Category not found")
+                        );
+
+        existingCategory.setName(category.getName());
+        existingCategory.setDescription(category.getDescription());
+
+        categoryRepo.save(existingCategory);
     }
 
-    public void deleteCategory(String name) {
-        Category category=categoryRepo.findByName(name);
-        categoryRepo.delete(category);
+    @Transactional
+    public void deleteCategory(Long id) {
+
+        if (!categoryRepo.existsById(id)) {
+            throw new RuntimeException("Category not found");
+        }
+
+        categoryRepo.deleteById(id);
+    }
+
+    public Category getCategory(Long categoryId) {
+        return categoryRepo.findById(categoryId);
     }
 }

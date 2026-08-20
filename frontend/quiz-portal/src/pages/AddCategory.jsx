@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import '../styles/AddCategory.css';
+import api from '../services/axiosConfig'
 
 function AddCategory() {
     const [name, setName] = useState("");
@@ -15,10 +16,8 @@ function AddCategory() {
         };
 
         try {
-            const response = await axios.post(
-                "http://localhost:8080/api/admin/categories",
-                categoryData
-            );
+            
+            const response =api.post("/api/admin/categories",categoryData);
 
             console.log("Category added:", response.data);
 

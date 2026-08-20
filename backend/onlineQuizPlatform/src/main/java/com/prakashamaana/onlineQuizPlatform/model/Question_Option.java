@@ -1,5 +1,6 @@
 package com.prakashamaana.onlineQuizPlatform.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -15,6 +16,7 @@ public class Question_Option {
     @Column(nullable = false)
     private String option;
 
+    @JsonProperty("isCorrect")
     private boolean isCorrect;
 
     @ManyToOne

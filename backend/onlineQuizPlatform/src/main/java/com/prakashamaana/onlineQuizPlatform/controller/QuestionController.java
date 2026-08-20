@@ -26,8 +26,18 @@ public class QuestionController {
         return new ResponseEntity<>(question,HttpStatus.OK);
     }
 
+    @GetMapping("/options/{questionId}")
+    public ResponseEntity<List<Question_Option>> getQuestionOptionById(@PathVariable int questionId){
+        List<Question_Option> options=questionService.getQuestionOptionById(questionId);
+        return new ResponseEntity<>(options,HttpStatus.OK);
+    }
+
     @PostMapping("/addOptions")
     public ResponseEntity<?> addOptions( @RequestBody List<Question_Option> questionOptions){
+        for(Question_Option question_option:questionOptions){
+
+            System.out.println(question_option.isCorrect()+question_option.getOption());
+        }
         questionService.addOptions(questionOptions);
         return new ResponseEntity<>("Options also added",HttpStatus.OK);
     }

@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import '../styles/Home.css';
+import api from "../services/axiosConfig";
 
 function Home() {
     const navigate = useNavigate();

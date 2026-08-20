@@ -1,0 +1,268 @@
+/* =========================================
+   Quiz Management
+========================================= */
+
+.quiz-management {
+    width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   Header
+========================================= */
+
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.quiz-header h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.quiz-header p {
+    margin-top: 8px;
+    margin-bottom: 0;
+    color: #6b7280;
+    font-size: 15px;
+}
+
+
+/* =========================================
+   Add Quiz Button
+========================================= */
+
+.add-quiz-button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.add-quiz-button:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   Table Container
+========================================= */
+
+.quiz-table-container {
+    width: 100%;
+    background: white;
+    border-radius: 12px;
+    overflow-x: auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   Table
+========================================= */
+
+.quiz-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 750px;
+}
+
+
+/* =========================================
+   Table Header
+========================================= */
+
+.quiz-table thead {
+    background: #f3f4f6;
+}
+
+.quiz-table th {
+    padding: 16px 18px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 700;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+/* =========================================
+   Table Body
+========================================= */
+
+.quiz-table td {
+    padding: 16px 18px;
+    font-size: 14px;
+    color: #4b5563;
+    border-bottom: 1px solid #e5e7eb;
+    vertical-align: middle;
+}
+
+.quiz-table tbody tr {
+    transition: background 0.2s ease;
+}
+
+.quiz-table tbody tr:hover {
+    background: #f9fafb;
+}
+
+.quiz-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================================
+   Quiz Name
+========================================= */
+
+.quiz-name {
+    font-weight: 600;
+    color: #111827 !important;
+}
+
+
+/* =========================================
+   Category
+========================================= */
+
+.quiz-table td:nth-child(3) {
+    font-weight: 500;
+    color: #2563eb;
+}
+
+
+/* =========================================
+   Action Buttons
+========================================= */
+
+.edit-quiz-button,
+.delete-quiz-button {
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 8px;
+    transition: all 0.2s ease;
+}
+
+
+/* Edit */
+
+.edit-quiz-button {
+    background: #e0f2fe;
+    color: #0369a1;
+}
+
+.edit-quiz-button:hover {
+    background: #bae6fd;
+    transform: translateY(-1px);
+}
+
+
+/* Delete */
+
+.delete-quiz-button {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.delete-quiz-button:hover {
+    background: #fecaca;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   Loading
+========================================= */
+
+.loading {
+    text-align: center;
+    margin-top: 50px;
+    color: #6b7280;
+    font-size: 16px;
+}
+
+
+/* =========================================
+   Error
+========================================= */
+
+.error {
+    background: #fee2e2;
+    color: #b91c1c;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+
+/* =========================================
+   Empty Quiz
+========================================= */
+
+.empty-quiz {
+    background: white;
+    padding: 60px 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.empty-quiz h3 {
+    margin: 0 0 10px;
+    color: #374151;
+    font-size: 20px;
+}
+
+.empty-quiz p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+
+/* =========================================
+   Responsive
+========================================= */
+
+@media (max-width: 768px) {
+
+    .quiz-management {
+        padding: 20px;
+    }
+
+    .quiz-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .add-quiz-button {
+        width: 100%;
+    }
+
+    .quiz-table-container {
+        overflow-x: auto;
+    }
+
+    .quiz-table {
+        min-width: 750px;
+    }
+}

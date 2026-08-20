@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import '../styles/Login.css';
+import { jwtDecode } from "jwt-decode";
 
 
 function Login() {
@@ -33,11 +34,27 @@ function Login() {
                 formData
             );
 
-            console.log("Login response:", response.data);
-
+            const token = response.data;
+            localStorage.setItem("token", response.data)
             setMessage("Login successful!");
 
-            navigate("/home");
+            const decodedToken = jwtDecode(token);
+
+            const roles = decodedToken.roles;
+
+
+            if (roles.includes("ROLE_ADMIN")) 
+            {
+            navigate("/adminDashboard");
+            } 
+            else if (roles.includes("ROLE_STUDENT")) 
+            {
+            navigate("/studentDashboard");
+            } 
+            else {
+            console.error("Unknown role:", roles);
+            }
+           
             
 
         } catch (error) {

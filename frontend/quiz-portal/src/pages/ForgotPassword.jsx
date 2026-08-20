@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import '../styles/ForgotPassword.css';
+import api from "../services/axiosConfig";
 
 function ForgotPassword() {
 
@@ -14,8 +15,8 @@ function ForgotPassword() {
 
         try {
 
-            const response = await axios.put(
-                "http://localhost:8080/api/auth/forgot-password",
+            const response = await api.put(
+                "/api/auth/forgot-password",
                 {
                     user_email: email,
                     user_password:password

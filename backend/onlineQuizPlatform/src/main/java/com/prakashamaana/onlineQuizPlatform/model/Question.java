@@ -26,5 +26,4 @@ public class Question {
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
-
 }

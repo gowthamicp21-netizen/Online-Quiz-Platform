@@ -11,7 +11,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/admin")
-@CrossOrigin(origins = "http://localhost:5173")
 public class CategoryController {
 
     @Autowired
@@ -23,6 +22,11 @@ public class CategoryController {
         return new ResponseEntity<>("Category added successfully", HttpStatus.OK);
     }
 
+    @GetMapping("/categories/{categoryId}")
+    public Category getCategory(@PathVariable Long categoryId){
+        return categoryService.getCategory(categoryId);
+    }
+
     @GetMapping("/categories")
     public List<Category> getCategories(){
         List<Category> categories= categoryService.getCategories();
@@ -30,15 +34,16 @@ public class CategoryController {
     }
 
     @PutMapping("/categories/{id}")
-    public ResponseEntity<?> updateCategory(@RequestBody Category category, @PathVariable int id)
+    public ResponseEntity<?> updateCategory(@RequestBody Category category, @PathVariable Integer id)
     {
-        categoryService.updateCategory(category);
+        categoryService.updateCategory(category,id);
         return new ResponseEntity<>("Category Updated successfully", HttpStatus.OK);
     }
 
-    @DeleteMapping("/categories")
-    public ResponseEntity<?> deleteCategory(@RequestParam String name){
-        categoryService.deleteCategory(name);
+    @DeleteMapping("/categories/{id}")
+    public ResponseEntity<?> deleteCategory(@PathVariable Long id){
+        categoryService.deleteCategory(id);
         return new ResponseEntity<>("Category Deleted successfully", HttpStatus.OK);
     }
+
 }

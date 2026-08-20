@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../styles/AddQuestion.css";
 import  { useEffect } from "react";
+import api from "../services/axiosConfig";
 
 function AddQuestion() {
 
@@ -13,10 +14,10 @@ function AddQuestion() {
     const[questionId,setQuestionId]=useState();
 
     const [options, setOptions] = useState([
-        { option: "", is_correct: false ,question:null },
-        { option: "", is_correct: false, question: null},
-        { option: "", is_correct: false ,question:null},
-        { option: "", is_correct: false ,question: null}
+        { option: "", isCorrect: false ,question:null },
+        { option: "", isCorrect: false, question: null},
+        { option: "", isCorrect: false ,question:null},
+        { option: "", isCorrect: false ,question: null}
     ]);
 
     // useEffect(() => {
@@ -30,23 +31,11 @@ function AddQuestion() {
     //     });
     // }, []);
 
-    useEffect(() => {
-    if (questionId) {
-        setOptions(prevOptions =>
-            prevOptions.map(opt => ({
-                ...opt,
-                question: {
-                    id: Number(questionId)
-                }
-            }))
-        );
-    }
-    }, [questionId]);
-
+   
     useEffect(() => {
 
-    axios
-        .get("http://localhost:8080/api/admin/categories")
+    
+        api.get("/api/admin/categories")
         .then(response => {
             console.log("Categories response:", response.data);
             setCategories(response.data);
@@ -69,7 +58,7 @@ function AddQuestion() {
 
         const updatedOptions = options.map((option, i) => ({
             ...option,
-            is_correct: i === index
+            isCorrect: i === index
         }));
 
         setOptions(updatedOptions);
@@ -92,8 +81,8 @@ function AddQuestion() {
         
         try {
 
-            const response = await axios.post(
-                "http://localhost:8080/api/admin/questions/addQuestions",
+            const response = await api.post(
+                "/api/admin/questions/addQuestions",
                 questionData
             );
 
@@ -101,13 +90,23 @@ function AddQuestion() {
 
             alert("Question added successfully!");
 
-            console.log(response.data);
-            console.log(options);
-            setQuestionId(response.data.id);
-            console.log(options);
-            const res=await axios.post(
-                "http://localhost:8080/api/admin/questions/addOptions",
-                options
+           
+           
+           
+            const questionId =response.data.id;
+            console.log("Created Question ID:", questionId);
+          const optionsWithQuestion = options.map(opt => ({
+                     option: opt.option,
+                     isCorrect: Boolean(opt.isCorrect),
+                         question: {
+                                id: questionId
+                                    }
+                        }));
+
+            console.log(optionsWithQuestion);
+            const res=await api.post(
+                "/api/admin/questions/addOptions",
+                optionsWithQuestion
             );
 
 
@@ -257,7 +256,7 @@ function AddQuestion() {
                                     <input
                                         type="radio"
                                         name="correctOption"
-                                        checked={option.is_correct}
+                                        checked={option.isCorrect}
                                         onChange={() =>
                                             handleCorrectOption(index)
                                         }

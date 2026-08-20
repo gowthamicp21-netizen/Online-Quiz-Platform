@@ -77,4 +77,9 @@ public class QuestionService {
             questionOptionRepo.save(option);
         }
     }
+
+    public List<Question_Option> getQuestionOptionById(int questionId) {
+        List<Question_Option> options=questionOptionRepo.findAllByQuestionId(questionId);
+        return options;
+    }
 }

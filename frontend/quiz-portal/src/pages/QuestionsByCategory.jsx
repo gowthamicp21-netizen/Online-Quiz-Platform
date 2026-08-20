@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../styles/QuestionsByCategory.css";
+import api from "../services/axiosConfig";
 
 function QuestionsByCategory() {
 
@@ -13,8 +14,8 @@ function QuestionsByCategory() {
     const [questions, setQuestions] = useState([]);
 
     useEffect(() => {
-        axios
-            .get(`http://localhost:8080/api/admin/questions/category/${categoryId}`)
+        api
+            .get(`/api/admin/questions/category/${categoryId}`)
             .then(response => {
                 setQuestions(response.data);
                 console.log(questions);

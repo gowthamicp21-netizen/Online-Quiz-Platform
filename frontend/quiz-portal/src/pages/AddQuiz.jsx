@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../styles/AddQuiz.css";
+import api from "../services/axiosConfig";
 
 function AddQuiz() {
 
@@ -33,8 +34,8 @@ function AddQuiz() {
 
             try {
 
-                const response = await axios.get(
-                    "http://localhost:8080/api/admin/categories"
+                const response = await api.get(
+                    "/api/admin/categories"
                 );
 
                 setCategories(response.data);
@@ -71,8 +72,8 @@ function AddQuiz() {
 
             try {
 
-                const response = await axios.get(
-                    `http://localhost:8080/api/admin/questions/category/${categoryId}`
+                const response = await api.get(
+                    `/api/admin/questions/category/${categoryId}`
                 );
 
                 console.log("Questions:", response.data);
@@ -214,8 +215,8 @@ function AddQuiz() {
 
         try {
 
-            const response = await axios.post(
-                "http://localhost:8080/api/admin/quizzes/createQuiz",
+            const response = await api.post(
+                "/api/admin/quizzes/createQuiz",
                 quizData,
                 {
                     headers: {
