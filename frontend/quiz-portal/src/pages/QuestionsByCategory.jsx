@@ -60,7 +60,7 @@ function QuestionsByCategory() {
                             </div>
                             <div>
                                 <h2 className="question-text">
-                                {question.question_text}
+                                {question.questionText}
                             </h2>
 
                             </div>

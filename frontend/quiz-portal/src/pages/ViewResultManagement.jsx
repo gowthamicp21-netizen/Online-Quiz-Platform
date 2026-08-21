@@ -34,7 +34,7 @@ function ViewResultManagement() {
             setError("");
 
             const response = await api.get(
-                "/api/admin/users"
+                "/api/admin/quizzes/users"
             );
 
             console.log(
@@ -135,6 +135,8 @@ function ViewResultManagement() {
                 GET
                 /api/admin/quizzes/quizResult/{userId}
             */
+
+                console.log("Before Fetching")
 
             const response = await api.get(
                 `/api/admin/quizzes/quizResult/${userId}`
